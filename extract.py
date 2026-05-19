@@ -3,6 +3,7 @@ from pathlib import Path
 from datetime import datetime
 import os
 import json
+import yfinance as yf
 
 #URL de Extração
 
