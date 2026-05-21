@@ -33,24 +33,26 @@ def save_bronze_data(data):
     with open(FILE_PATH, 'w', encoding="UTF-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
 
-def ibovespa_components():
+    
+def return_ibovespa_stocks():
 
-    df = pd.read_csv(r"C:\Users\bruno\Downloads/IBOVDia_20-05-26.csv",
+    #CSV FILE with all ibovespa stock codes
+    df = pd.read_csv(r"/home/archkenos/Downloads/IBOVDia_20-05-26.csv",
                      encoding='latin1',
                      header=1,
                      sep=';',
                      index_col=False
                      )
-    print(df.head())
     column_data = df.iloc[:, 0]
-    ibovespa_tickets = []
+    ibovespa_stocks = []
     
     for ticket in column_data:
         formatted_ticket = f"{ticket}.SA"
-        ibovespa_tickets.append(formatted_ticket)
-    
-    print(ibovespa_tickets)
+        ibovespa_stocks.append(formatted_ticket)
+        
+    return ibovespa_stocks
+        
 if __name__ == "__main__":
-    ibovespa_components()
+    return_ibovespa_stocks()
     #data = extract_by_serie()
     #save_bronze_data(data)
