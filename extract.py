@@ -35,10 +35,11 @@ def save_bronze_data(data):
 
 def ibovespa_components():
 
-    df = pd.read_csv(r"/home/archkenos/Downloads/IBOVDia_20-05-26.csv",
+    df = pd.read_csv(r"C:\Users\bruno\Downloads/IBOVDia_20-05-26.csv",
                      encoding='latin1',
                      header=1,
-                     sep=';'
+                     sep=';',
+                     index_col=False
                      )
     print(df.head())
     column_data = df.iloc[:, 0]
